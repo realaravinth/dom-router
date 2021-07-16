@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Router | dom-router</title>
+	<title>default | dom-router</title>
 	<meta name="description" content="Documentation for dom-router">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -55,10 +55,10 @@
 					<a href="../modules.html">dom-router</a>
 				</li>
 				<li>
-					<a href="Router.html">Router</a>
+					<a href="default.html">default</a>
 				</li>
 			</ul>
-			<h1>Class Router</h1>
+			<h1>Class default</h1>
 		</div>
 	</div>
 </header>
@@ -69,15 +69,44 @@
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
 						<p>Router that selectively executes fucntions
-						based on window.location.pathname</p>
+						based on <code>window.location.pathname</code></p>
 					</div>
+					<pre><code class="language-typescript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">router</span><span style="color: #000000"> = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #795E26">Router</span><span style="color: #000000">();</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">settingsRoute</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;/settings&quot;</span><span style="color: #000000">;</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">profileRoute</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;/r/[A-Z,a-z,0-9]+/&quot;</span><span style="color: #000000">;</span>
+
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #795E26">settings</span><span style="color: #000000"> = () </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000"> </span><span style="color: #0000FF">let</span><span style="color: #000000"> </span><span style="color: #001080">form</span><span style="color: #000000"> = </span><span style="color: #001080">document</span><span style="color: #000000">.</span><span style="color: #795E26">getElementById</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;form&quot;</span><span style="color: #000000">);</span>
+<span style="color: #000000"> </span><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #795E26">submit</span><span style="color: #000000"> = () </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">   </span><span style="color: #795E26">alert</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;Settings updated&quot;</span><span style="color: #000000">)</span>
+<span style="color: #000000"> }</span>
+<span style="color: #000000"> </span><span style="color: #001080">form</span><span style="color: #000000">.</span><span style="color: #795E26">addEbentListener</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;submit&#039;</span><span style="color: #000000">, </span><span style="color: #001080">submit</span><span style="color: #000000">, </span><span style="color: #0000FF">true</span><span style="color: #000000">);</span>
+<span style="color: #000000">}</span>
+
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #795E26">profile</span><span style="color: #000000"> = () </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000"> </span><span style="color: #0000FF">let</span><span style="color: #000000"> </span><span style="color: #001080">form</span><span style="color: #000000"> = </span><span style="color: #001080">document</span><span style="color: #000000">.</span><span style="color: #795E26">getElementById</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;form&quot;</span><span style="color: #000000">);</span>
+<span style="color: #000000"> </span><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #795E26">submit</span><span style="color: #000000"> = () </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">   </span><span style="color: #795E26">alert</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;profile updated&quot;</span><span style="color: #000000">)</span>
+<span style="color: #000000"> }</span>
+<span style="color: #000000"> </span><span style="color: #001080">form</span><span style="color: #000000">.</span><span style="color: #795E26">addEbentListener</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;submit&#039;</span><span style="color: #000000">, </span><span style="color: #001080">submit</span><span style="color: #000000">, </span><span style="color: #0000FF">true</span><span style="color: #000000">);</span>
+<span style="color: #000000">}</span>
+
+<span style="color: #001080">router</span><span style="color: #000000">.</span><span style="color: #795E26">register</span><span style="color: #000000">(</span><span style="color: #001080">settingsRoute</span><span style="color: #000000">, </span><span style="color: #001080">settings</span><span style="color: #000000">);</span>
+<span style="color: #001080">router</span><span style="color: #000000">.</span><span style="color: #795E26">register</span><span style="color: #000000">(</span><span style="color: #001080">profileRoute</span><span style="color: #000000">, </span><span style="color: #001080">profile</span><span style="color: #000000">);</span>
+
+<span style="color: #AF00DB">try</span><span style="color: #000000"> {</span>
+<span style="color: #000000"> </span><span style="color: #001080">router</span><span style="color: #000000">.</span><span style="color: #795E26">router</span><span style="color: #000000">()</span>
+<span style="color: #000000">} </span><span style="color: #AF00DB">catch</span><span style="color: #000000">(</span><span style="color: #001080">e</span><span style="color: #000000">) {</span>
+<span style="color: #000000"> </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">(</span><span style="color: #001080">e</span><span style="color: #000000">);</span>
+<span style="color: #000000">}</span>
+</code></pre>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">Router</span>
+						<span class="target">default</span>
 					</li>
 				</ul>
 			</section>
@@ -88,20 +117,20 @@
 						<section class="tsd-index-section ">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="Router.html#constructor" class="tsd-kind-icon">constructor</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="default.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="Router.html#routes" class="tsd-kind-icon">routes</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="default.html#routes" class="tsd-kind-icon">routes</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="Router.html#register" class="tsd-kind-icon">register</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="Router.html#route" class="tsd-kind-icon">route</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="default.html#register" class="tsd-kind-icon">register</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="default.html#route" class="tsd-kind-icon">route</a></li>
 							</ul>
 						</section>
 					</div>
@@ -113,16 +142,16 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Router<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="Router.html" class="tsd-signature-type" data-tsd-kind="Class">Router</a></li>
+						<li class="tsd-signature tsd-kind-icon">new default<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="default.html" class="tsd-signature-type" data-tsd-kind="Class">default</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/realaravinth/dom-router/blob/a4106d6/src/index.ts#L37">index.ts:37</a></li>
+									<li>Defined in <a href="https://github.com/realaravinth/dom-router/blob/f0a13dc/src/index.ts#L68">index.ts:68</a></li>
 								</ul>
 							</aside>
-							<h4 class="tsd-returns-title">Returns <a href="Router.html" class="tsd-signature-type" data-tsd-kind="Class">Router</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="default.html" class="tsd-signature-type" data-tsd-kind="Class">default</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -135,7 +164,7 @@
 					<div class="tsd-signature tsd-kind-icon">routes<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">routeTuple</span><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/realaravinth/dom-router/blob/a4106d6/src/index.ts#L36">index.ts:36</a></li>
+							<li>Defined in <a href="https://github.com/realaravinth/dom-router/blob/f0a13dc/src/index.ts#L67">index.ts:67</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -152,7 +181,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/realaravinth/dom-router/blob/a4106d6/src/index.ts#L47">index.ts:47</a></li>
+									<li>Defined in <a href="https://github.com/realaravinth/dom-router/blob/f0a13dc/src/index.ts#L78">index.ts:78</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -198,7 +227,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/realaravinth/dom-router/blob/a4106d6/src/index.ts#L76">index.ts:76</a></li>
+									<li>Defined in <a href="https://github.com/realaravinth/dom-router/blob/f0a13dc/src/index.ts#L107">index.ts:107</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -226,19 +255,19 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class">
-						<a href="Router.html" class="tsd-kind-icon">Router</a>
+						<a href="default.html" class="tsd-kind-icon">default</a>
 						<ul>
 							<li class=" tsd-kind-constructor tsd-parent-kind-class">
-								<a href="Router.html#constructor" class="tsd-kind-icon">constructor</a>
+								<a href="default.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="Router.html#routes" class="tsd-kind-icon">routes</a>
+								<a href="default.html#routes" class="tsd-kind-icon">routes</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="Router.html#register" class="tsd-kind-icon">register</a>
+								<a href="default.html#register" class="tsd-kind-icon">register</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="Router.html#route" class="tsd-kind-icon">route</a>
+								<a href="default.html#route" class="tsd-kind-icon">route</a>
 							</li>
 						</ul>
 					</li>
