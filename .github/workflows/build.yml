@@ -42,7 +42,6 @@ jobs:
         uses: codecov/codecov-action@v1
 
       - name: Deploy Docuemntation to GitHub Pages
-        if: matrix.version == '1.51.0' && (github.repository == 'mCaptcha/browser')
         uses: JamesIves/github-pages-deploy-action@3.7.1
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
