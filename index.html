@@ -58,6 +58,54 @@
 	<div class="row">
 		<div class="col-8 col-content">
 			<div class="tsd-panel tsd-typography">
+				<div align="center">
+					<h1>
+						DOM Router
+					</h1>
+					<p>
+						<strong>Light weight, pure vanilla JavaScript based router for the DOM</strong>
+					</p>
+					<p><a href="https://realaravinth.github.io/dom-router/"><img src="https://img.shields.io/badge/docs-master-blue" alt="Documentation"></a>
+						<a href="https://github.com/realaravinth/dom-router/actions/workflows/build.yml"><img src="https://github.com/realaravinth/dom-router/actions/workflows/build.yml/badge.svg" alt="Build"></a>
+					<a href="https://codecov.io/gh/realaravinth/dom-router"><img src="https://codecov.io/gh/realaravinth/dom-router/branch/master/graph/badge.svg" alt="codecov"></a></p>
+				</div>
+				<a href="#example" id="example" style="color: inherit; text-decoration: none;">
+					<h2>Example</h2>
+				</a>
+				<pre><code class="language-typescript"><span style="color: #AF00DB">import</span><span style="color: #000000"> </span><span style="color: #001080">Router</span><span style="color: #000000"> </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;dom-router&#039;</span><span style="color: #000000">;</span>
+
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">router</span><span style="color: #000000"> = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #795E26">Router</span><span style="color: #000000">();</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">settingsRoute</span><span style="color: #000000"> = </span><span style="color: #A31515">&#039;/settings&#039;</span><span style="color: #000000">;</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">profileRoute</span><span style="color: #000000"> = </span><span style="color: #A31515">&#039;/r/[A-Z,a-z,0-9]+/&#039;</span><span style="color: #000000">;</span>
+
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #795E26">settings</span><span style="color: #000000"> = () </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">  </span><span style="color: #0000FF">let</span><span style="color: #000000"> </span><span style="color: #001080">form</span><span style="color: #000000"> = </span><span style="color: #001080">document</span><span style="color: #000000">.</span><span style="color: #795E26">getElementById</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;form&#039;</span><span style="color: #000000">);</span>
+<span style="color: #000000">  </span><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #795E26">submit</span><span style="color: #000000"> = () </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">    </span><span style="color: #795E26">alert</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;Settings updated&#039;</span><span style="color: #000000">);</span>
+<span style="color: #000000">  };</span>
+<span style="color: #000000">  </span><span style="color: #001080">form</span><span style="color: #000000">.</span><span style="color: #795E26">addEbentListener</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;submit&#039;</span><span style="color: #000000">, </span><span style="color: #001080">submit</span><span style="color: #000000">, </span><span style="color: #0000FF">true</span><span style="color: #000000">);</span>
+<span style="color: #000000">};</span>
+
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #795E26">profile</span><span style="color: #000000"> = () </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">  </span><span style="color: #0000FF">let</span><span style="color: #000000"> </span><span style="color: #001080">form</span><span style="color: #000000"> = </span><span style="color: #001080">document</span><span style="color: #000000">.</span><span style="color: #795E26">getElementById</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;form&#039;</span><span style="color: #000000">);</span>
+<span style="color: #000000">  </span><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #795E26">submit</span><span style="color: #000000"> = () </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">    </span><span style="color: #795E26">alert</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;profile updated&#039;</span><span style="color: #000000">);</span>
+<span style="color: #000000">  };</span>
+<span style="color: #000000">  </span><span style="color: #001080">form</span><span style="color: #000000">.</span><span style="color: #795E26">addEbentListener</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;submit&#039;</span><span style="color: #000000">, </span><span style="color: #001080">submit</span><span style="color: #000000">, </span><span style="color: #0000FF">true</span><span style="color: #000000">);</span>
+<span style="color: #000000">};</span>
+
+<span style="color: #001080">router</span><span style="color: #000000">.</span><span style="color: #795E26">register</span><span style="color: #000000">(</span><span style="color: #001080">settingsRoute</span><span style="color: #000000">, </span><span style="color: #001080">settings</span><span style="color: #000000">);</span>
+<span style="color: #001080">router</span><span style="color: #000000">.</span><span style="color: #795E26">register</span><span style="color: #000000">(</span><span style="color: #001080">profileRoute</span><span style="color: #000000">, </span><span style="color: #001080">profile</span><span style="color: #000000">);</span>
+
+<span style="color: #AF00DB">try</span><span style="color: #000000"> {</span>
+<span style="color: #000000">  </span><span style="color: #001080">router</span><span style="color: #000000">.</span><span style="color: #795E26">router</span><span style="color: #000000">();</span>
+<span style="color: #000000">} </span><span style="color: #AF00DB">catch</span><span style="color: #000000"> (</span><span style="color: #001080">e</span><span style="color: #000000">) {</span>
+<span style="color: #000000">  </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">(</span><span style="color: #001080">e</span><span style="color: #000000">);</span>
+<span style="color: #000000">}</span>
+</code></pre>
+				<ul>
+					<li>see <a href="https://github.com/mCaptcha/mCaptcha">mCaptcha/mCaptcha</a></li>
+				</ul>
 			</div>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
