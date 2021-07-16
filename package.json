@@ -6,7 +6,7 @@
     "build": "webpack --mode production",
     "start": "webpack-dev-server --mode development --progress --color",
     "test": "jest",
-    "doc": "yarn build && yarn typedoc src/index.ts"
+    "doc": "yarn build && yarn typedoc --readme ./README.md src/index.ts"
   },
   "main": "index.js",
   "repository": "https://github.com/realaravinth/dom-router",
