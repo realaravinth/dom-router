@@ -1,0 +1,50 @@
+name: Build
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+  push:
+    branches:
+      - master
+
+jobs:
+  build_and_test:
+    name: x86_64-unknown-linux-gnu
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: ⚡ Cache
+        uses: actions/cache@v2
+        with:
+          path: |
+            node_modules/
+          key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
+
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14.x'
+
+      - name: Install JavaScript Dependencies
+        run: yarn install
+
+      - name: Build
+        run: yarn build
+
+      - name: tests
+        run: yarn test
+
+      - name: generate TS documentation
+        run: yarn doc
+
+      - name: Upload coverage to Codecov
+        if: (github.ref == 'refs/heads/master' || github.event_name == 'pull_request')
+        uses: codecov/codecov-action@v1
+
+      - name: Deploy Docuemntation to GitHub Pages
+        if: matrix.version == '1.51.0' && (github.repository == 'mCaptcha/browser')
+        uses: JamesIves/github-pages-deploy-action@3.7.1
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: docs/
