@@ -30,9 +30,40 @@ type routeTuple = {
 
 /**
  * Router that selectively executes fucntions
- * based on window.location.pathname
+ * based on `window.location.pathname`
+ *
+ * ```typescript
+ * const router = new Router();
+ * const settingsRoute = "/settings";
+ * const profileRoute = "/r/[A-Z,a-z,0-9]+/";
+ *
+ * const settings = () => {
+ *  let form = document.getElementById("form");
+ *  const submit = () => {
+ *    alert("Settings updated")
+ *  }
+ *  form.addEbentListener('submit', submit, true);
+ * }
+ *
+ * const profile = () => {
+ *  let form = document.getElementById("form");
+ *  const submit = () => {
+ *    alert("profile updated")
+ *  }
+ *  form.addEbentListener('submit', submit, true);
+ * }
+ *
+ * router.register(settingsRoute, settings);
+ * router.register(profileRoute, profile);
+ *
+ * try {
+ *  router.router()
+ * } catch(e) {
+ *  console.log(e);
+ * }
+ * ```
  * */
-export class Router {
+class Router {
   routes: Array<routeTuple>;
   constructor() {
     this.routes = [];
@@ -76,7 +107,7 @@ export class Router {
   route() {
     const path = normalizeUri(window.location.pathname);
 
-    let fn: undefined | (() => void)
+    let fn: undefined | (() => void);
 
     this.routes.find(route => {
       if (path.match(route.pattern)) {
@@ -92,3 +123,5 @@ export class Router {
     return fn();
   }
 }
+
+export default Router;

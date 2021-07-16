@@ -8,7 +8,7 @@
  * MIT or <http://www.apache.org/licenses/LICENSE-2.0> for Apache.
  */
 
-import {Router} from './index';
+import Router from './index';
 
 'use strict';
 
