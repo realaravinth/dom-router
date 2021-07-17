@@ -1,6 +1,6 @@
 <div align="center">
 <h1>
-  DOM Router
+  Vanilla DOM Router
 </h1>
 <p>
   <strong>Lightweight, pure vanilla JavaScript based router for the DOM</strong>
@@ -48,7 +48,7 @@ used to set up register handlers, initialize timers, etc.
 ## Example
 
 ```typescript
-import Router from 'dom-router';
+import Router from 'vanilla-dom-router';
 
 // Initialize router
 const router = new Router();

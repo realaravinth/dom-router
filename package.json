@@ -1,5 +1,5 @@
 {
-  "name": "dom-router",
+  "name": "vanilla-dom-router",
   "version": "0.1.0",
   "description": "Lightweight vanilla JavaScript DOM router",
   "homepage": "https://github.com/realaravinth/dom-router",
