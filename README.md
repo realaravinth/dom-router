@@ -12,12 +12,47 @@
 
 </div>
 
+When bundling and shipping Vanilla JavaScript, often we
+require only specific modules to be specific pages. This could mean
+registering event handlers, times, basically everything that would panic
+when run in other pages.
+
+DOM Router supports matching modules(functions, more specifically)
+against routes. It requires a route(either a string or a regular
+expression in string form) and a bootstrapping function.
+
+The bootstrapping function could initialize timers, register event
+handlers and perform page specific operations.
+
+## Route
+
+- Only exact matches are accepted.
+  For example, if `/foo` is registered,
+  only http://example.com/foo and not http://example.com/foo/bar
+
+- Routes are normalized by removing trailing slash.
+  So `/foo` is the same as `/foo/`
+
+- Sometimes routes will have variable fields. These
+  cases can be represented with a regular expression rule.
+  For example, Reddit's subreddit
+  route, `www.reddit.com/r/<subreddit-name>`), can be matched with
+  `/r/[A-Z,a-z,0-9]+/`(assuming subreddit names are alphanumerical)
+
+## Bootstrapping function
+
+This function will get executed when `window.location.pathname` matches
+the any one of the registered routes. Generally, this function should be
+used to set up register handlers, initialize timers, etc.
+
 ## Example
 
 ```typescript
 import Router from 'dom-router';
 
+// Initialize router
 const router = new Router();
+
 const settingsRoute = '/settings';
 const profileRoute = '/r/[A-Z,a-z,0-9]+/';
 
@@ -46,5 +81,7 @@ try {
   console.log(e);
 }
 ```
+
+## In the wild
 
 - see [mCaptcha/mCaptcha](https://github.com/mCaptcha/mCaptcha)
