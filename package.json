@@ -1,17 +1,38 @@
 {
   "name": "dom-router",
   "version": "0.1.0",
-  "description": "simple vanilla JavaScript DOM router",
+  "description": "Lightweight vanilla JavaScript DOM router",
+  "homepage": "https://github.com/realaravinth/dom-router",
+  "author": "Aravinth Manivannan <realaravinth@batsense.net>",
+  "keywords": ["router", "vanilla JS", "DOM router", "DOM"],
+  "license": "(MIT OR Apache-2.0)",
+  "browser": "dist/router.js",
+  "types": "dist/index.d.ts",
+  "files": ["dist"],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/realaravinth/dom-router.git"
+  },
+  "bugs": {
+    "url": "https://github.com/realaravinth/dom-router/issues",
+    "email": "realaravinth@batsense.net"
+  },
+  "funding": [
+    {
+      "type": "individual",
+      "url": "http://batsense.net/donate"
+    },
+    {
+      "type": "liberapay",
+      "url": "https://liberapay.com/realaravinth"
+    }
+  ],
   "scripts": {
     "build": "webpack --mode production",
     "start": "webpack-dev-server --mode development --progress --color",
     "test": "jest",
     "doc": "yarn build && yarn typedoc --readme ./README.md src/index.ts"
   },
-  "main": "index.js",
-  "repository": "https://github.com/realaravinth/dom-router",
-  "author": "Aravinth Manivannan <realaravinth@batsense.net>",
-  "license": "(MIT OR Apache-2.0)",
   "devDependencies": {
     "@types/jest": "^26.0.23",
     "@types/jsdom": "^16.2.10",

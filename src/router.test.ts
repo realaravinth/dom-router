@@ -1,6 +1,6 @@
 /*
  * Copyright (C) 2021  Aravinth Manivannan <realaravinth@batsense.net>
- * Light weight vanilla JavaScript based router for the DOM.
+ * Lightweight vanilla JavaScript based router for the DOM.
  *
  * Use of this source code is governed by Apache 2.0 or MIT license.
  * You shoud have received a copy of MIT and Apache 2.0 along with

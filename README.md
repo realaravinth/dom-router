@@ -3,7 +3,7 @@
   DOM Router
 </h1>
 <p>
-  <strong>Light weight, pure vanilla JavaScript based router for the DOM</strong>
+  <strong>Lightweight, pure vanilla JavaScript based router for the DOM</strong>
 </p>
 
 [![Documentation](https://img.shields.io/badge/docs-master-blue)](https://realaravinth.github.io/dom-router/)

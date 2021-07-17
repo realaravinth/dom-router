@@ -2,11 +2,9 @@
 const path = require('path');
 
 module.exports = {
-  devtool: 'inline-source-map',
-  mode: 'development',
-  //mode: 'production',
+  mode: 'production',
   entry: {
-    bundle: './src/index.ts',
+    router: './src/index.ts',
   },
   output: {
     filename: '[name].js',
