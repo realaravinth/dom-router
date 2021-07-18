@@ -6,7 +6,7 @@
   "author": "Aravinth Manivannan <realaravinth@batsense.net>",
   "keywords": ["router", "vanilla JS", "DOM router", "DOM"],
   "license": "(MIT OR Apache-2.0)",
-  "browser": "dist/router.js",
+  "browser": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": ["dist"],
   "repository": {
