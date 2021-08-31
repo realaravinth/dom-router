@@ -83,11 +83,7 @@ class Router {
     let patterString = pattern.toString();
     if (
       this.routes.find(route => {
-        if (route.pattern.toString() == patterString) {
-          return true;
-        } else {
-          return false;
-        }
+        route.pattern.toString() == patterString;
       })
     ) {
       throw new Error('URI exists');
@@ -106,7 +102,6 @@ class Router {
    * */
   route() {
     const path = normalizeUri(window.location.pathname);
-
     let fn: undefined | (() => void);
 
     this.routes.find(route => {
@@ -120,9 +115,9 @@ class Router {
 
     if (fn === undefined) {
       throw new Error("Route isn't registered");
+    } else {
+      fn.call(this);
     }
-
-    return fn();
   }
 }
 

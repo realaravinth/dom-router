@@ -7,7 +7,6 @@
  * this program. If not, see <https://spdx.org/licenses/MIT.html> for
  * MIT or <http://www.apache.org/licenses/LICENSE-2.0> for Apache.
  */
-
 import Router from './index';
 
 'use strict';
