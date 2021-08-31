@@ -1,6 +1,6 @@
 {
   "name": "vanilla-dom-router",
-  "version": "0.1.2",
+  "version": "0.1.3-alpha-1",
   "description": "Lightweight vanilla JavaScript DOM router",
   "homepage": "https://github.com/realaravinth/dom-router",
   "author": "Aravinth Manivannan <realaravinth@batsense.net>",
